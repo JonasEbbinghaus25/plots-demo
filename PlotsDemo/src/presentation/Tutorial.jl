@@ -102,7 +102,7 @@ plot(
     legend=:topright, 
     # extra_kwargs = Dict(:series => Dict(:linecolor => :blue, :linestyle => :dash))
     linecolor=:blue,
-    linestyle=:solid
+    linestyle=:dash
 )
 
 
