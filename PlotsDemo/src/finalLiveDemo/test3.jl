@@ -9,8 +9,18 @@ gr();
 # Pkg.add("DataFrames")
 # Pkg.add("StatsPlots") 
 
-# Lese die CSV-Datei aus dem angegebenen Pfad in einen DataFrame
-df = CSV.read("C:\\work\\development\\repositories\\PlotsDemo\\PlotsDemo\\data\\advertising.csv", DataFrame)
+# Projektpfade definieren
+project_root = normpath(joinpath(@__DIR__, "..", "..")) # Zwei Ebenen hoch gehen (zur Wurzel des Projekts)
+data_dir = joinpath(project_root, "data")              # `data`-Ordner im Projekt
+filename = joinpath(data_dir, "advertising.csv")       # Vollständiger Pfad zur CSV-Datei
+
+# Überprüfen, ob die Datei existiert
+if !isfile(filename)
+    error("Datei nicht gefunden: $filename")
+end
+
+# CSV-Datei in einen DataFrame laden
+df = CSV.read(filename, DataFrame)
 
 # Ausgabe des DataFrames (optional)
 println(df)
@@ -31,4 +41,8 @@ display(p)
 # @df Makro: Ermöglicht direkten Zugriff auf `DataFrame`-Spalten in Plotbefehlen.
 # df (DataFrame): Enthält die Daten für den Plot.
 # Doppelpunkte `:`: Greifen auf Spaltennamen im `DataFrame` zu (als Symbole).
+
+
+
+
 
