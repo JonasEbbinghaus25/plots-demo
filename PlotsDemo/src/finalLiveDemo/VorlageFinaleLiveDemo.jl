@@ -40,7 +40,9 @@ display(p)
 savefig(p, "Subplots.png")
 
 # 3d Scatter
-@df df scatter3d(:YearsInCompany, :Performance, :Salary, xlabel="Years in Company", ylabel="Performance", zlabel="Salary", title="3D Scatterplot: Salary vs Years in Company and Performance", color=:blue, alpha=0.5)
+@df df scatter3d(:YearsInCompany, :Performance, :Salary, 
+  xlabel="Years in Company", ylabel="Performance", zlabel="Salary", 
+  title="3D Scatterplot: Salary vs Years in Company and Performance", color=:blue, alpha=0.5)
 
 # 3d Scatter animiert
 # Erstelle eine Animation
@@ -56,7 +58,8 @@ z = df.Salary
 # Für jeden Schritt wird ein neuer Frame für die Animation erstellt
 for t in 1:length(x)
     # Die ersten 't' Datenpunkte aus x, y und z
-    scatter3d(x[1:t], y[1:t], z[1:t], xlabel="Years in Company", ylabel="Performance", zlabel="Salary", title="3D Salary Animation", color=:blue)
+    scatter3d(x[1:t], y[1:t], z[1:t], xlabel="Years in Company", ylabel="Performance", 
+       zlabel="Salary", title="3D Salary Animation", color=:blue)
 
     # Füge den aktuellen Plot als Frame zur Animation hinzu
     frame(anim)
